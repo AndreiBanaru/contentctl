@@ -9,6 +9,7 @@ from contentctl.objects.deployment_notable import DeploymentNotable
 from contentctl.objects.deployment_phantom import DeploymentPhantom
 from contentctl.objects.deployment_rba import DeploymentRBA
 from contentctl.objects.deployment_slack import DeploymentSlack
+from contentctl.objects.deployment_snow_incident import DeploymentSnowIncident
 
 
 class AlertAction(BaseModel):
@@ -18,6 +19,7 @@ class AlertAction(BaseModel):
     rba: Optional[DeploymentRBA] = DeploymentRBA()
     slack: Optional[DeploymentSlack] = None
     phantom: Optional[DeploymentPhantom] = None
+    snow_incident: Optional[DeploymentSnowIncident] = None
 
     @model_serializer
     def serialize_model(self):
@@ -38,6 +40,9 @@ class AlertAction(BaseModel):
 
         if self.phantom is not None:
             raise Exception("Phantom not implemented")
+
+        if self.snow_incident is not None:
+            model["snow_incident"] = self.snow_incident
 
         # return the model
         return model

@@ -69,6 +69,55 @@ action.sendtophantom.param.phantom_server = {{ detection.deployment.alert_action
 action.sendtophantom.param.sensitivity = {{ detection.deployment.alert_action.phantom.sensitivity | custom_jinja2_enrichment_filter(detection) }}
 action.sendtophantom.param.severity = {{ detection.deployment.alert_action.phantom.severity | custom_jinja2_enrichment_filter(detection) }}
 {% endif %}
+{% if detection.deployment.alert_action.snow_incident %}
+action.snow_incident = 1
+action.snow_incident.param.account = {{ detection.deployment.alert_action.snow_incident.account | custom_jinja2_enrichment_filter(detection) }}
+{% if detection.deployment.alert_action.snow_incident.assignment_group %}
+action.snow_incident.param.assignment_group = {{ detection.deployment.alert_action.snow_incident.assignment_group | custom_jinja2_enrichment_filter(detection) }}
+{% endif %}
+{% if detection.deployment.alert_action.snow_incident.category %}
+action.snow_incident.param.category = {{ detection.deployment.alert_action.snow_incident.category | custom_jinja2_enrichment_filter(detection) }}
+{% endif %}
+{% if detection.deployment.alert_action.snow_incident.contact_type %}
+action.snow_incident.param.contact_type = {{ detection.deployment.alert_action.snow_incident.contact_type | custom_jinja2_enrichment_filter(detection) }}
+{% endif %}
+{% if detection.deployment.alert_action.snow_incident.correlation_id %}
+action.snow_incident.param.correlation_id = {{ detection.deployment.alert_action.snow_incident.correlation_id | custom_jinja2_enrichment_filter(detection) }}
+{% endif %}
+{% if detection.deployment.alert_action.snow_incident.splunk_url %}
+action.snow_incident.param.splunk_url = {{ detection.deployment.alert_action.snow_incident.splunk_url | custom_jinja2_enrichment_filter(detection) }}
+{% endif %}
+{% if detection.deployment.alert_action.snow_incident.state %}
+action.snow_incident.param.state = {{ detection.deployment.alert_action.snow_incident.state }}
+{% endif %}
+{% if detection.deployment.alert_action.snow_incident.custom_fields %}
+action.snow_incident.param.custom_fields = {{ detection.deployment.alert_action.snow_incident.custom_fields | custom_jinja2_enrichment_filter(detection) | escapeNewlines()}}
+{% endif %}
+{% if detection.deployment.alert_action.snow_incident.impact %}
+action.snow_incident.param.impact = {{ detection.deployment.alert_action.snow_incident.impact }}
+{% endif %}
+{% if detection.deployment.alert_action.snow_incident.short_description %}
+action.snow_incident.param.short_description = {{ detection.deployment.alert_action.snow_incident.short_description | custom_jinja2_enrichment_filter(detection) }}
+{% endif %}
+{% if detection.deployment.alert_action.snow_incident.subcategory %}
+action.snow_incident.param.subcategory = {{ detection.deployment.alert_action.snow_incident.subcategory | custom_jinja2_enrichment_filter(detection) }}
+{% endif %}
+{% if detection.deployment.alert_action.snow_incident.urgency %}
+action.snow_incident.param.urgency = {{ detection.deployment.alert_action.snow_incident.urgency }}
+{% endif %}
+{% if detection.deployment.alert_action.snow_incident.location %}
+action.snow_incident.param.location = {{ detection.deployment.alert_action.snow_incident.location | custom_jinja2_enrichment_filter(detection) }}
+{% endif %}
+{% if detection.deployment.alert_action.snow_incident.priority %}
+action.snow_incident.param.priority = {{ detection.deployment.alert_action.snow_incident.priority }}
+{% endif %}
+{% if detection.deployment.alert_action.snow_incident.ci_identifier %}
+action.snow_incident.param.ci_identifier = {{ detection.deployment.alert_action.snow_incident.ci_identifier | custom_jinja2_enrichment_filter(detection) }}
+{% endif %}
+{% if detection.deployment.alert_action.snow_incident.comments %}
+action.snow_incident.param.comments = {{ detection.deployment.alert_action.snow_incident.comments | custom_jinja2_enrichment_filter(detection) }}
+{% endif %}
+{% endif %}
 alert.digest_mode = 1
 disabled = {{ (not detection.enabled_by_default) | lower }}
 enableSched = 1
